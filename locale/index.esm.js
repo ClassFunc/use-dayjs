@@ -1,6 +1,5 @@
 "use strict";
 import dayjs from "dayjs";
-
 const djsSetLocale = (locale) => {
   if (!locale)
     locale = "ja";

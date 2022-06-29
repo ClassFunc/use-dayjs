@@ -1,6 +1,5 @@
 "use strict";
-import {dayjs} from "../dayjs";
-
+import { dayjs } from "../dayjs";
 const djsParse = (aTime) => {
   return dayjs(aTime);
 };

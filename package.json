@@ -2,10 +2,13 @@
   "name": "use-dayjs",
   "version": "1.0.0",
   "description": "It's simpler to use dayjs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./index.cjs.js",
+  "module": "./index.esm.js",
+  "types": "./index.d.ts",
   "files": [
-    "dist"
+    "**/*.js",
+    "**/*.d.ts",
+    "**/package.json"
   ],
   "scripts": {
     "build:tsc": "tsc --build",
