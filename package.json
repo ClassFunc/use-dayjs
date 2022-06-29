@@ -1,0 +1,37 @@
+{
+  "name": "use-dayjs",
+  "version": "1.0.0",
+  "description": "It's simpler to use dayjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:tsc": "tsc --build",
+    "clean:tsc": "tsc --build --clean",
+    "build": "node esbuild.cjs",
+    "build:commit": "yarn run build && yarn generate-docs && git add --all && git commit -m 'build'",
+    "watch": "node esbuild-watch.cjs",
+    "generate-docs": "typedoc --plugin typedoc-plugin-markdown --readme ./README.md --out __docs__ index.ts",
+    "pre-publish": "npm publish --dry-run"
+  },
+  "author": "duongdam",
+  "license": "MIT",
+  "devDependencies": {
+    "glob": "^7.2.0",
+    "esbuild": "^0.14.29",
+    "@types/lodash": "^4.14.180",
+    "esbuild-plugin-d.ts": "^1.1.0",
+    "@types/node": "^18.0.0",
+    "dayjs": "^1.11.3",
+    "typescript": "^4.7.4"
+  },
+  "repository": "https://github.com/ClassFunc/use-dayjs",
+  "homepage": "https://github.com/duongdam/use-dayjs",
+  "keywords": [
+    "use dayjs",
+    "dayjs",
+    "simpler dayjs"
+  ]
+}
