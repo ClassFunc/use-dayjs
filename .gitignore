@@ -23,8 +23,8 @@ dist
 .DS_Store
 *.pem
 
-example-next
-example-react
+/example-next
+/example-react
 
 # debug
 npm-debug.log*
@@ -34,5 +34,3 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-
-/example-js

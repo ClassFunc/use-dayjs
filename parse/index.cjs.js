@@ -7,7 +7,7 @@ var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
+      __defProp(target, name, {get: all[name], enumerable: true});
 };
 var __copyProps = (to, from, except, desc) => {
     if (from && typeof from === "object" || typeof from === "function") {

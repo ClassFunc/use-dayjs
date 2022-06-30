@@ -1,6 +1,6 @@
 {
   "name": "use-dayjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "It's simpler to use dayjs",
   "main": "./index.cjs.js",
   "module": "./index.esm.js",
@@ -25,11 +25,11 @@
     "dayjs": "^1.11.3"
   },
   "devDependencies": {
-    "glob": "^7.2.0",
-    "esbuild": "^0.14.29",
     "@types/lodash": "^4.14.180",
-    "esbuild-plugin-d.ts": "^1.1.0",
     "@types/node": "^18.0.0",
+    "esbuild": "^0.14.29",
+    "esbuild-plugin-d.ts": "^1.1.0",
+    "glob": "^7.2.0",
     "typescript": "^4.7.4"
   },
   "repository": "https://github.com/ClassFunc/use-dayjs",
