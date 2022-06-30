@@ -2,11 +2,6 @@
 
 It's simpler to use dayjs
 
-- Khai báo một lần, sử dụng mãi mãi
-- Không bị lặp lại import moment ở mọi nơi
-- Không bị lặp lại code ở mọi nơi
-- Cơ động và thực chiến
-
 ## Support for
 
 ```bash
@@ -21,4 +16,19 @@ It's simpler to use dayjs
 ```html
 npm i --save use-dayjs
 yarn add use-dayjs
+```
+
+## Use package
+
+```js
+// in App.tsx
+import {djsSetLocale} from "use-dayjs/locale";
+
+djsSetLocale('vi')
+
+// in component
+import {djsFormat} from "use-dayjs/display";
+
+djsFormat("2022-06-30", "YYYY-MM-DD ddd") //2022-06-30 T5
+
 ```

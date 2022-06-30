@@ -1,10 +1,12 @@
 "use strict";
-import { dayjs } from "../dayjs";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc);
 const djsParse = (aTime) => {
   return dayjs(aTime);
 };
 const djsParseNow = () => {
-  console.log(dayjs.locale());
   return dayjs();
 };
 const djsParseUTC = (aTime) => {
