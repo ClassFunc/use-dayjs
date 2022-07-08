@@ -39,9 +39,9 @@ djsSet(new Date(), {
 More
 Actions
 
-1.
-Calculator
-djsDateOfMonth,
+1.Calculator
+
+    djsDateOfMonth,
     djsDayOfWeek,
     djsDayOfWeekAware,
     djsDayOfWeekISO,
@@ -59,9 +59,9 @@ djsDateOfMonth,
     djsWeekYear,
     djsYear
 
-2.
-Display
-djsFormat,
+2.Display
+
+    djsFormat,
     djsFromNow,
     djsFromAtTime,
     djsToAtTime,
@@ -78,22 +78,22 @@ djsFormat,
     djsToString,
     djsUnixTimestamp
 
-3.
-Locale
-djsSetLocale,
+3.Locale
+
+    djsSetLocale,
     djsUTCOffset,
     djsUTC
 
-4.
-Manipulate
-djsAdd,
+4.Manipulate
+
+    djsAdd,
     djsEndOf,
     djsStartOf,
     djsSubtract
 
-5.
-Parse
-djsParse,
+5.Parse
+
+    djsParse,
     djsParseNow,
     djsParseUTC,
     djsParseNowUTC,
@@ -101,9 +101,9 @@ djsParse,
     djsNowUTC,
     djsClone
 
-6.
-Query
-djsBetween,
+6.Query
+
+    djsBetween,
     djsBetweenRange,
     djsIsAfter,
     djsIsBefore,
@@ -113,9 +113,9 @@ djsBetween,
     djsSameAfter,
     djsSameBefore
 
-7.
-Timezone
-djsTz,
+7.Timezone
+
+    djsTz,
     djsTzSet,
     djsToZone,
     djsTzGuess,
