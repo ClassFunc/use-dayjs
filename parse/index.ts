@@ -35,10 +35,6 @@ const djsParseNowUTC = () => {
     return djsParse(djsNow().toString())
 }
 
-const djsUnix = (timestamp: number) => {
-    return dayjs.unix(timestamp)
-}
-
 const djsClone = (aTime?: ConfigType) => {
     if (!aTime)
         return dayjs(dayjs())
@@ -53,6 +49,5 @@ export {
     djsParseNowUTC,
     djsNow,
     djsNowUTC,
-    djsUnix,
     djsClone
 }

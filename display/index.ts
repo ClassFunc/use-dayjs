@@ -1,9 +1,13 @@
 import dayjs, {ConfigType, OpUnitType, QUnitType} from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import calendar from "dayjs/plugin/calendar";
+import toArray from "dayjs/plugin/toArray";
+import toObject from "dayjs/plugin/toObject";
 
 dayjs.extend(relativeTime)
 dayjs.extend(calendar)
+dayjs.extend(toArray)
+dayjs.extend(toObject)
 
 const djsFormat = (aTime: ConfigType, format: string) => {
     return dayjs(aTime).format(format)
@@ -33,6 +37,42 @@ const djsDiff = (aTime: ConfigType, bTime: ConfigType, unit?: QUnitType | OpUnit
     return dayjs(aTime).diff(bTime, unit, float)
 }
 
+const djsToDateJs = (aTime?: ConfigType) => {
+    return dayjs(aTime).toDate()
+}
+
+const djsToArray = (aTime?: ConfigType) => {
+    return dayjs(aTime).toArray()
+}
+
+const djsToJson = (aTime?: ConfigType) => {
+    return dayjs(aTime).toJSON()
+}
+
+const djsToISOString = (aTime?: ConfigType) => {
+    return dayjs(aTime).toISOString()
+}
+
+const djsToObject: any = (aTime?: ConfigType) => {
+    return dayjs(aTime).toObject()
+}
+
+const djsToString = (aTime?: ConfigType) => {
+    return dayjs(aTime).toString()
+}
+
+const djsUnixTimestamp = (aTime?: ConfigType) => {
+    return dayjs(aTime).valueOf()
+}
+
+const djsUnix = (aTime?: ConfigType) => {
+    return dayjs(aTime).unix()
+}
+
+const djsDayInMonth = (aTime?: ConfigType) => {
+    return dayjs(aTime).daysInMonth()
+}
+
 export {
     djsFormat,
     djsFromNow,
@@ -40,5 +80,14 @@ export {
     djsToAtTime,
     djsCalendar,
     djsToNow,
-    djsDiff
+    djsDiff,
+    djsToDateJs,
+    djsToArray,
+    djsUnix,
+    djsDayInMonth,
+    djsToISOString,
+    djsToJson,
+    djsToObject,
+    djsToString,
+    djsUnixTimestamp,
 }
