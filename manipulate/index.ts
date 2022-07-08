@@ -23,4 +23,9 @@ const djsEndOf = (aTime?: ConfigType, unit: OpUnitType) => {
     return dayjs(aTime).endOf(unit)
 }
 
-export {}
+export {
+    djsAdd,
+    djsEndOf,
+    djsStartOf,
+    djsSubtract
+}
