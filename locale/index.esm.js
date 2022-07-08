@@ -1,5 +1,8 @@
 "use strict";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc);
 const djsSetLocale = (locale) => {
   if (!locale)
     locale = "ja";
@@ -10,6 +13,14 @@ const djsSetLocale = (locale) => {
     dayjs.locale(_locale);
   }).catch((e) => console.log(e.toString()));
 };
+const djsUTCOffset = (aTime, offset, keepLocalTime) => {
+  return dayjs(aTime).utcOffset(offset, keepLocalTime);
+};
+const djsUTC = (aTime, keepLocalTime) => {
+  return dayjs(aTime).utc(keepLocalTime);
+};
 export {
-  djsSetLocale
+  djsSetLocale,
+  djsUTC,
+  djsUTCOffset
 };

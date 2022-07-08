@@ -6,4 +6,13 @@ declare const djsFromAtTime: (aTime: ConfigType, compared: ConfigType, withoutSu
 declare const djsToAtTime: (aTime: ConfigType, compared: ConfigType, withoutSuffix?: boolean) => string;
 declare const djsCalendar: (referenceTime?: ConfigType, formats?: object) => string;
 declare const djsDiff: (aTime: ConfigType, bTime: ConfigType, unit?: QUnitType | OpUnitType, float?: boolean) => number;
-export { djsFormat, djsFromNow, djsFromAtTime, djsToAtTime, djsCalendar, djsToNow, djsDiff };
+declare const djsToDateJs: (aTime?: ConfigType) => Date;
+declare const djsToArray: (aTime?: ConfigType) => number[];
+declare const djsToJson: (aTime?: ConfigType) => string;
+declare const djsToISOString: (aTime?: ConfigType) => string;
+declare const djsToObject: any;
+declare const djsToString: (aTime?: ConfigType) => string;
+declare const djsUnixTimestamp: (aTime?: ConfigType) => number;
+declare const djsUnix: (aTime?: ConfigType) => number;
+declare const djsDayInMonth: (aTime?: ConfigType) => number;
+export { djsFormat, djsFromNow, djsFromAtTime, djsToAtTime, djsCalendar, djsToNow, djsDiff, djsToDateJs, djsToArray, djsUnix, djsDayInMonth, djsToISOString, djsToJson, djsToObject, djsToString, djsUnixTimestamp, };

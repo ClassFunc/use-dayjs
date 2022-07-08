@@ -25,33 +25,44 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
     enumerable: true
 }) : target, mod));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", {value: true}), mod);
-var manipulate_exports = {};
-__export(manipulate_exports, {
-    djsAdd: () => djsAdd,
-    djsEndOf: () => djsEndOf,
-    djsStartOf: () => djsStartOf,
-    djsSubtract: () => djsSubtract
+var timezone_exports = {};
+__export(timezone_exports, {
+    djsToZone: () => djsToZone,
+    djsTz: () => djsTz,
+    djsTzFormat: () => djsTzFormat,
+    djsTzGuess: () => djsTzGuess,
+    djsTzSet: () => djsTzSet
 });
-module.exports = __toCommonJS(manipulate_exports);
+module.exports = __toCommonJS(timezone_exports);
 var import_dayjs = __toESM(require("dayjs"));
-var import_duration = __toESM(require("dayjs/plugin/duration"));
-import_dayjs.default.extend(import_duration.default);
-const djsAdd = (aTime, nums, unit) => {
-    return (0, import_dayjs.default)(aTime).add(nums, unit);
+var import_utc = __toESM(require("dayjs/plugin/utc"));
+var import_timezone = __toESM(require("dayjs/plugin/timezone"));
+var import_customParseFormat = __toESM(require("dayjs/plugin/customParseFormat"));
+import_dayjs.default.extend(import_utc.default);
+import_dayjs.default.extend(import_timezone.default);
+import_dayjs.default.extend(import_customParseFormat.default);
+const djsTzSet = (tz) => {
+    return import_dayjs.default.tz.setDefault(tz);
 };
-const djsSubtract = (aTime, nums, unit) => {
-    return (0, import_dayjs.default)(aTime).subtract(nums, unit);
+const djsTzGuess = () => {
+    return import_dayjs.default.tz.guess();
 };
-const djsStartOf = (aTime, unit) => {
-    return (0, import_dayjs.default)(aTime).startOf(unit);
+const djsTz = (aTime, tz) => {
+    return import_dayjs.default.tz(aTime, tz);
 };
-const djsEndOf = (aTime, unit) => {
-    return (0, import_dayjs.default)(aTime).endOf(unit);
+const djsToZone = (aTime, tz, keepLocalTime) => {
+    return (0, import_dayjs.default)(aTime).tz(tz, keepLocalTime);
+};
+const djsTzFormat = (aTime, format = "YYYY-MM-DD H:mm:ss A Z", tz) => {
+    if (!tz)
+        tz = import_dayjs.default.tz.guess();
+    return import_dayjs.default.tz(aTime, format, tz);
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-    djsAdd,
-    djsEndOf,
-    djsStartOf,
-    djsSubtract
+    djsToZone,
+    djsTz,
+    djsTzFormat,
+    djsTzGuess,
+    djsTzSet
 });

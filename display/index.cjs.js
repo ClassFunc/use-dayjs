@@ -21,48 +21,97 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var display_exports = {};
 __export(display_exports, {
-  djsCalendar: () => djsCalendar,
-  djsDiff: () => djsDiff,
-  djsFormat: () => djsFormat,
-  djsFromAtTime: () => djsFromAtTime,
-  djsFromNow: () => djsFromNow,
-  djsToAtTime: () => djsToAtTime,
-  djsToNow: () => djsToNow
+    djsCalendar: () => djsCalendar,
+    djsDayInMonth: () => djsDayInMonth,
+    djsDiff: () => djsDiff,
+    djsFormat: () => djsFormat,
+    djsFromAtTime: () => djsFromAtTime,
+    djsFromNow: () => djsFromNow,
+    djsToArray: () => djsToArray,
+    djsToAtTime: () => djsToAtTime,
+    djsToDateJs: () => djsToDateJs,
+    djsToISOString: () => djsToISOString,
+    djsToJson: () => djsToJson,
+    djsToNow: () => djsToNow,
+    djsToObject: () => djsToObject,
+    djsToString: () => djsToString,
+    djsUnix: () => djsUnix,
+    djsUnixTimestamp: () => djsUnixTimestamp
 });
 module.exports = __toCommonJS(display_exports);
 var import_dayjs = __toESM(require("dayjs"));
 var import_relativeTime = __toESM(require("dayjs/plugin/relativeTime"));
 var import_calendar = __toESM(require("dayjs/plugin/calendar"));
+var import_toArray = __toESM(require("dayjs/plugin/toArray"));
+var import_toObject = __toESM(require("dayjs/plugin/toObject"));
 import_dayjs.default.extend(import_relativeTime.default);
 import_dayjs.default.extend(import_calendar.default);
+import_dayjs.default.extend(import_toArray.default);
+import_dayjs.default.extend(import_toObject.default);
 const djsFormat = (aTime, format) => {
-  return (0, import_dayjs.default)(aTime).format(format);
+    return (0, import_dayjs.default)(aTime).format(format);
 };
 const djsFromNow = (aTime, withoutSuffix) => {
-  return (0, import_dayjs.default)(aTime).fromNow(withoutSuffix);
+    return (0, import_dayjs.default)(aTime).fromNow(withoutSuffix);
 };
 const djsToNow = (aTime, withoutSuffix) => {
-  return (0, import_dayjs.default)(aTime).toNow(withoutSuffix);
+    return (0, import_dayjs.default)(aTime).toNow(withoutSuffix);
 };
 const djsFromAtTime = (aTime, compared, withoutSuffix) => {
   return (0, import_dayjs.default)(aTime).from(compared, withoutSuffix);
 };
 const djsToAtTime = (aTime, compared, withoutSuffix) => {
-  return (0, import_dayjs.default)(aTime).to(compared, withoutSuffix);
+    return (0, import_dayjs.default)(aTime).to(compared, withoutSuffix);
 };
 const djsCalendar = (referenceTime, formats) => {
-  return (0, import_dayjs.default)().calendar(referenceTime, formats);
+    return (0, import_dayjs.default)().calendar(referenceTime, formats);
 };
 const djsDiff = (aTime, bTime, unit, float) => {
-  return (0, import_dayjs.default)(aTime).diff(bTime, unit, float);
+    return (0, import_dayjs.default)(aTime).diff(bTime, unit, float);
+};
+const djsToDateJs = (aTime) => {
+    return (0, import_dayjs.default)(aTime).toDate();
+};
+const djsToArray = (aTime) => {
+    return (0, import_dayjs.default)(aTime).toArray();
+};
+const djsToJson = (aTime) => {
+    return (0, import_dayjs.default)(aTime).toJSON();
+};
+const djsToISOString = (aTime) => {
+    return (0, import_dayjs.default)(aTime).toISOString();
+};
+const djsToObject = (aTime) => {
+    return (0, import_dayjs.default)(aTime).toObject();
+};
+const djsToString = (aTime) => {
+    return (0, import_dayjs.default)(aTime).toString();
+};
+const djsUnixTimestamp = (aTime) => {
+    return (0, import_dayjs.default)(aTime).valueOf();
+};
+const djsUnix = (aTime) => {
+    return (0, import_dayjs.default)(aTime).unix();
+};
+const djsDayInMonth = (aTime) => {
+    return (0, import_dayjs.default)(aTime).daysInMonth();
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  djsCalendar,
-  djsDiff,
-  djsFormat,
-  djsFromAtTime,
-  djsFromNow,
-  djsToAtTime,
-  djsToNow
+    djsCalendar,
+    djsDayInMonth,
+    djsDiff,
+    djsFormat,
+    djsFromAtTime,
+    djsFromNow,
+    djsToArray,
+    djsToAtTime,
+    djsToDateJs,
+    djsToISOString,
+    djsToJson,
+    djsToNow,
+    djsToObject,
+    djsToString,
+    djsUnix,
+    djsUnixTimestamp
 });

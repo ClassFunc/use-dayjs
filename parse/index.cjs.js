@@ -27,6 +27,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", {value: true}), mod);
 var parse_exports = {};
 __export(parse_exports, {
+    djsClone: () => djsClone,
+    djsNow: () => djsNow,
+    djsNowUTC: () => djsNowUTC,
     djsParse: () => djsParse,
     djsParseNow: () => djsParseNow,
     djsParseNowUTC: () => djsParseNowUTC,
@@ -35,23 +38,45 @@ __export(parse_exports, {
 module.exports = __toCommonJS(parse_exports);
 var import_dayjs = __toESM(require("dayjs"));
 var import_utc = __toESM(require("dayjs/plugin/utc"));
+var import_customParseFormat = __toESM(require("dayjs/plugin/customParseFormat"));
+var import_objectSupport = __toESM(require("dayjs/plugin/objectSupport"));
+import_dayjs.default.extend(import_objectSupport.default);
+import_dayjs.default.extend(import_customParseFormat.default);
 import_dayjs.default.extend(import_utc.default);
 const djsParse = (aTime) => {
+    if (!aTime)
+        return (0, import_dayjs.default)();
     return (0, import_dayjs.default)(aTime);
 };
-const djsParseNow = () => {
-    return (0, import_dayjs.default)();
-};
 const djsParseUTC = (aTime) => {
+    if (!aTime)
+        return (0, import_dayjs.default)().utc();
     return (0, import_dayjs.default)(aTime).utc();
 };
-const djsParseNowUTC = () => {
+const djsNowUTC = () => {
     return (0, import_dayjs.default)().utc();
+};
+const djsNow = () => {
+    return (0, import_dayjs.default)();
+};
+const djsParseNow = () => {
+    return djsParse(djsNow().toString());
+};
+const djsParseNowUTC = () => {
+    return djsParse(djsNow().toString());
+};
+const djsClone = (aTime) => {
+    if (!aTime)
+        return (0, import_dayjs.default)((0, import_dayjs.default)());
+    return (0, import_dayjs.default)((0, import_dayjs.default)(aTime));
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  djsParse,
-  djsParseNow,
-  djsParseNowUTC,
-  djsParseUTC
+    djsClone,
+    djsNow,
+    djsNowUTC,
+    djsParse,
+    djsParseNow,
+    djsParseNowUTC,
+    djsParseUTC
 });

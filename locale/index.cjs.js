@@ -17,25 +17,40 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+    value: mod,
+    enumerable: true
+}) : target, mod));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", {value: true}), mod);
 var locale_exports = {};
 __export(locale_exports, {
-  djsSetLocale: () => djsSetLocale
+    djsSetLocale: () => djsSetLocale,
+    djsUTC: () => djsUTC,
+    djsUTCOffset: () => djsUTCOffset
 });
 module.exports = __toCommonJS(locale_exports);
 var import_dayjs = __toESM(require("dayjs"));
+var import_utc = __toESM(require("dayjs/plugin/utc"));
+import_dayjs.default.extend(import_utc.default);
 const djsSetLocale = (locale) => {
-  if (!locale)
-    locale = "ja";
-  let _locale = locale.split("-")[0];
-  if (_locale === "en")
-    _locale = "en-gb";
-  import(`dayjs/locale/${_locale}.js`).then(() => {
-    import_dayjs.default.locale(_locale);
-  }).catch((e) => console.log(e.toString()));
+    if (!locale)
+        locale = "ja";
+    let _locale = locale.split("-")[0];
+    if (_locale === "en")
+        _locale = "en-gb";
+    import(`dayjs/locale/${_locale}.js`).then(() => {
+        import_dayjs.default.locale(_locale);
+    }).catch((e) => console.log(e.toString()));
+};
+const djsUTCOffset = (aTime, offset, keepLocalTime) => {
+    return (0, import_dayjs.default)(aTime).utcOffset(offset, keepLocalTime);
+};
+const djsUTC = (aTime, keepLocalTime) => {
+    return (0, import_dayjs.default)(aTime).utc(keepLocalTime);
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  djsSetLocale
+    djsSetLocale,
+    djsUTC,
+    djsUTCOffset
 });

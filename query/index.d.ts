@@ -1,1 +1,11 @@
-export {};
+import { ConfigType, OpUnitType } from "dayjs";
+declare const djsIsBefore: (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType) => boolean;
+declare const djsIsSame: (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType) => boolean;
+declare const djsIsAfter: (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType) => boolean;
+declare const djsSameBefore: (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType) => boolean;
+declare const djsSameAfter: (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType) => boolean;
+declare const djsBetween: (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType, extra?: '()' | '[]' | '[)' | '(]') => boolean;
+declare const djsBetweenRange: (aTime?: ConfigType, bTime?: ConfigType, cTime?: ConfigType, unit?: OpUnitType, extra?: '()' | '[]' | '[)' | '(]') => boolean;
+declare const djsIsDayjs: (aTime?: ConfigType) => boolean;
+declare const djsIsLeapYear: (aTime?: ConfigType) => boolean;
+export { djsBetween, djsBetweenRange, djsIsAfter, djsIsBefore, djsIsDayjs, djsIsLeapYear, djsIsSame, djsSameAfter, djsSameBefore };
