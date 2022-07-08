@@ -7,11 +7,15 @@ dayjs.extend(objectSupport)
 dayjs.extend(customParseFormat)
 dayjs.extend(utc)
 
-const djsParse = (aTime: ConfigType) => {
+const djsParse = (aTime?: ConfigType) => {
+    if (!aTime)
+        return dayjs()
     return dayjs(aTime)
 }
 
-const djsParseUTC = (aTime: ConfigType) => {
+const djsParseUTC = (aTime?: ConfigType) => {
+    if (!aTime)
+        return dayjs().utc()
     return dayjs(aTime).utc()
 }
 
