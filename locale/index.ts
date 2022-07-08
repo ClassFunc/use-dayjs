@@ -1,4 +1,7 @@
-import dayjs from "dayjs";
+import dayjs, {ConfigType} from "dayjs";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc)
 
 const djsSetLocale = (locale: string) => {
     if (!locale)
@@ -13,6 +16,17 @@ const djsSetLocale = (locale: string) => {
     }).catch(e => console.log(e.toString()))
 }
 
+// @ts-ignore
+const djsUTCOffset = (aTime?: ConfigType, offset: number | string, keepLocalTime?: boolean) => {
+    return dayjs(aTime).utcOffset(offset, keepLocalTime)
+}
+
+const djsUTC = (aTime?: ConfigType, keepLocalTime?: boolean) => {
+    return dayjs(aTime).utc(keepLocalTime)
+}
+
 export {
-    djsSetLocale
+    djsSetLocale,
+    djsUTCOffset,
+    djsUTC
 }
