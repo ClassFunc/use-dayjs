@@ -1,6 +1,6 @@
 {
   "name": "use-dayjs",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "It's simpler to use dayjs",
   "main": "./index.cjs.js",
   "module": "./index.esm.js",
