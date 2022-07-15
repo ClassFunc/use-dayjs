@@ -4,6 +4,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import calendar from "dayjs/plugin/calendar";
 import toArray from "dayjs/plugin/toArray";
 import toObject from "dayjs/plugin/toObject";
+import {djsParseUTC} from "../parse";
 
 dayjs.extend(relativeTime);
 dayjs.extend(calendar);
@@ -56,6 +57,30 @@ const djsUnix = (aTime) => {
 };
 const djsDayInMonth = (aTime) => {
   return dayjs(aTime).daysInMonth();
+};
+const djsFormatUTC = (aTime, format) => {
+  return djsFormat(djsParseUTC(aTime), format);
+};
+const djsFormatDDD = (aTime) => {
+  return djsFormat(aTime, "ddd");
+};
+const djsFormatDDDD = (aTime) => {
+  return djsFormat(aTime, "dddd");
+};
+const djsFormatMMDD = (aTime) => {
+  return djsFormat(aTime, "MM/DD");
+};
+const djsFormatDDMM = (aTime) => {
+  return djsFormat(aTime, "DD/MM");
+};
+const djsFormatYYYYMMDD = (aTime) => {
+  return djsFormat(aTime, "YYYY-MM-DD");
+};
+const djsFormatYYYY = (aTime) => {
+  return djsFormat(aTime, "YYYY");
+};
+const djsFormatYYYYMMDDHHMMSSZ = (aTime) => {
+  return djsFormat(djsParseUTC(aTime), "YYYYMMDDTHHmmss") + "Z";
 };
 export {
   djsCalendar,

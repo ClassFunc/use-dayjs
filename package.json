@@ -1,7 +1,7 @@
 {
   "name": "use-dayjs",
-  "version": "1.0.8",
-  "description": "It's simpler to use dayjs",
+  "version": "1.0.10",
+  "description": "It's simpler to use dayjs, support reactjs, nextjs, nodejs, typescripts, use esbuild",
   "main": "./index.cjs.js",
   "module": "./index.esm.js",
   "types": "./index.d.ts",
