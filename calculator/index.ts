@@ -34,28 +34,52 @@ const djsParseUTC = (aTime?: ConfigType) => {
     return dayjs(aTime).utc()
 }
 
-const djsMillisecond = (aTime?: ConfigType, value: number = 0) => {
+const djsMillisecondValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).millisecond(value)
 }
 
-const djsSecond = (aTime?: ConfigType, value: number = 0) => {
+const djsMillisecond = (aTime?: ConfigType) => {
+    return dayjs(aTime).millisecond()
+}
+
+const djsSecondValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).second(value)
 }
 
-const djsMinute = (aTime?: ConfigType, value: number = 0) => {
+const djsSecond = (aTime?: ConfigType) => {
+    return dayjs(aTime).second()
+}
+
+const djsMinuteValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).minute(value)
 }
 
-const djsHour = (aTime?: ConfigType, value: number = 0) => {
+const djsMinute = (aTime?: ConfigType) => {
+    return dayjs(aTime).minute()
+}
+
+const djsHourValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).hour(value)
 }
 
-const djsWeekDay = (aTime?: ConfigType, week: number = 0, day: number = 0) => {
-    return dayjs(aTime).week(week).day(day)
+const djsHour = (aTime?: ConfigType) => {
+    return dayjs(aTime).hour()
 }
 
-const djsWeek = (aTime?: ConfigType, value: number = 0) => {
+const djsDayValue = (aTime?: ConfigType, value: number = 0) => {
+    return dayjs(aTime).day(value)
+}
+
+const djsDay = (aTime?: ConfigType) => {
+    return dayjs(aTime).day()
+}
+
+const djsWeekValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).week(value)
+}
+
+const djsWeek = (aTime?: ConfigType) => {
+    return dayjs(aTime).week()
 }
 
 const djsDateOfMonth = (aTime?: ConfigType, value: number = 0) => {
@@ -82,16 +106,28 @@ const djsWeekOfYear = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).isoWeek(value)
 }
 
-const djsMonth = (aTime?: ConfigType, value: number = 0) => {
+const djsMonthValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).month(value)
 }
 
-const djsQuarter = (aTime?: ConfigType, value: number = 0) => {
+const djsMonth = (aTime?: ConfigType) => {
+    return dayjs(aTime).month()
+}
+
+const djsQuarterValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).quarter(value)
 }
 
-const djsYear = (aTime?: ConfigType, value: number = 0) => {
+const djsQuarter = (aTime?: ConfigType) => {
+    return dayjs(aTime).quarter()
+}
+
+const djsYearValue = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).year(value)
+}
+
+const djsYear = (aTime?: ConfigType) => {
+    return dayjs(aTime).year()
 }
 
 const djsWeekYear = (aTime?: ConfigType) => {
@@ -164,9 +200,19 @@ export {
     djsWeekYear,
     djsYear,
     djsWeek,
-    djsWeekDay,
+    djsDay,
     djsDuration,
     djsDefault,
     djsDefaultUTC,
-    djsDurationUTC
+    djsDurationUTC,
+    djsDayValue,
+    djsHourValue,
+    djsMillisecondValue,
+    djsMinuteValue,
+    djsMonthValue,
+    djsParseUTC,
+    djsQuarterValue,
+    djsSecondValue,
+    djsWeekValue,
+    djsYearValue
 }

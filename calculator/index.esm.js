@@ -22,23 +22,41 @@ const djsParseUTC = (aTime) => {
     return dayjs().utc();
   return dayjs(aTime).utc();
 };
-const djsMillisecond = (aTime, value = 0) => {
+const djsMillisecondValue = (aTime, value = 0) => {
   return dayjs(aTime).millisecond(value);
 };
-const djsSecond = (aTime, value = 0) => {
+const djsMillisecond = (aTime) => {
+  return dayjs(aTime).millisecond();
+};
+const djsSecondValue = (aTime, value = 0) => {
   return dayjs(aTime).second(value);
 };
-const djsMinute = (aTime, value = 0) => {
+const djsSecond = (aTime) => {
+  return dayjs(aTime).second();
+};
+const djsMinuteValue = (aTime, value = 0) => {
   return dayjs(aTime).minute(value);
 };
-const djsHour = (aTime, value = 0) => {
+const djsMinute = (aTime) => {
+  return dayjs(aTime).minute();
+};
+const djsHourValue = (aTime, value = 0) => {
   return dayjs(aTime).hour(value);
 };
-const djsWeekDay = (aTime, week = 0, day = 0) => {
-  return dayjs(aTime).week(week).day(day);
+const djsHour = (aTime) => {
+  return dayjs(aTime).hour();
 };
-const djsWeek = (aTime, value = 0) => {
+const djsDayValue = (aTime, value = 0) => {
+  return dayjs(aTime).day(value);
+};
+const djsDay = (aTime) => {
+  return dayjs(aTime).day();
+};
+const djsWeekValue = (aTime, value = 0) => {
   return dayjs(aTime).week(value);
+};
+const djsWeek = (aTime) => {
+  return dayjs(aTime).week();
 };
 const djsDateOfMonth = (aTime, value = 0) => {
   return dayjs(aTime).date(value);
@@ -58,14 +76,23 @@ const djsDayOfYear = (aTime, value = 0) => {
 const djsWeekOfYear = (aTime, value = 0) => {
   return dayjs(aTime).isoWeek(value);
 };
-const djsMonth = (aTime, value = 0) => {
+const djsMonthValue = (aTime, value = 0) => {
   return dayjs(aTime).month(value);
 };
-const djsQuarter = (aTime, value = 0) => {
+const djsMonth = (aTime) => {
+  return dayjs(aTime).month();
+};
+const djsQuarterValue = (aTime, value = 0) => {
   return dayjs(aTime).quarter(value);
 };
-const djsYear = (aTime, value = 0) => {
+const djsQuarter = (aTime) => {
+  return dayjs(aTime).quarter();
+};
+const djsYearValue = (aTime, value = 0) => {
   return dayjs(aTime).year(value);
+};
+const djsYear = (aTime) => {
+  return dayjs(aTime).year();
 };
 const djsWeekYear = (aTime) => {
   return dayjs(aTime).weekYear();
@@ -101,26 +128,36 @@ const djsDurationUTC = (aTime, bTime, divisor) => {
 };
 export {
   djsDateOfMonth,
+  djsDay,
   djsDayOfWeek,
   djsDayOfWeekAware,
   djsDayOfWeekISO,
   djsDayOfYear,
+  djsDayValue,
   djsDefault,
   djsDefaultUTC,
   djsDuration,
   djsDurationUTC,
   djsGet,
   djsHour,
+  djsHourValue,
   djsMillisecond,
+  djsMillisecondValue,
   djsMinute,
+  djsMinuteValue,
   djsMonth,
+  djsMonthValue,
+  djsParseUTC,
   djsQuarter,
+  djsQuarterValue,
   djsSecond,
+  djsSecondValue,
   djsSet,
   djsWeek,
-  djsWeekDay,
   djsWeekInYearISO,
   djsWeekOfYear,
+  djsWeekValue,
   djsWeekYear,
-  djsYear
+  djsYear,
+  djsYearValue
 };
