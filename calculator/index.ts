@@ -6,7 +6,7 @@ import weekOfYear from "dayjs/plugin/weekOfYear";
 import quarterOfYear from "dayjs/plugin/quarterOfYear";
 import weekYear from "dayjs/plugin/weekYear";
 import isoWeeksInYear from "dayjs/plugin/isoWeeksInYear";
-import {djsParseUTC} from "../parse/index";
+import utc from "dayjs/plugin/utc";
 
 dayjs.extend(weekday)
 dayjs.extend(isoWeek)
@@ -15,6 +15,7 @@ dayjs.extend(weekOfYear)
 dayjs.extend(quarterOfYear)
 dayjs.extend(weekYear)
 dayjs.extend(isoWeeksInYear)
+dayjs.extend(utc)
 
 type SetProps = {
     millisecond?: number,
@@ -25,6 +26,12 @@ type SetProps = {
     month?: number,
     year?: number,
     date?: number
+}
+
+const djsParseUTC = (aTime?: ConfigType) => {
+    if (!aTime)
+        return dayjs().utc()
+    return dayjs(aTime).utc()
 }
 
 const djsMillisecond = (aTime?: ConfigType, value: number = 0) => {

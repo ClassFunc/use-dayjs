@@ -2,11 +2,14 @@ import dayjs, {ConfigType} from "dayjs"
 import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
 import customParseFormat from "dayjs/plugin/customParseFormat"
-import {djsFormat} from "../display";
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(customParseFormat)
+
+const djsFormat = (aTime?: ConfigType, format?: string) => {
+    return dayjs(aTime).format(format)
+}
 
 // Change default timezone from local time zone to your custom timezone.
 

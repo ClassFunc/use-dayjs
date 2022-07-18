@@ -60,7 +60,7 @@ var import_weekOfYear = __toESM(require("dayjs/plugin/weekOfYear"));
 var import_quarterOfYear = __toESM(require("dayjs/plugin/quarterOfYear"));
 var import_weekYear = __toESM(require("dayjs/plugin/weekYear"));
 var import_isoWeeksInYear = __toESM(require("dayjs/plugin/isoWeeksInYear"));
-var import_parse = require("../parse/index");
+var import_utc = __toESM(require("dayjs/plugin/utc"));
 import_dayjs.default.extend(import_weekday.default);
 import_dayjs.default.extend(import_isoWeek.default);
 import_dayjs.default.extend(import_dayOfYear.default);
@@ -68,6 +68,12 @@ import_dayjs.default.extend(import_weekOfYear.default);
 import_dayjs.default.extend(import_quarterOfYear.default);
 import_dayjs.default.extend(import_weekYear.default);
 import_dayjs.default.extend(import_isoWeeksInYear.default);
+import_dayjs.default.extend(import_utc.default);
+const djsParseUTC = (aTime) => {
+  if (!aTime)
+    return (0, import_dayjs.default)().utc();
+  return (0, import_dayjs.default)(aTime).utc();
+};
 const djsMillisecond = (aTime, value = 0) => {
   return (0, import_dayjs.default)(aTime).millisecond(value);
 };
@@ -136,14 +142,14 @@ const djsDefault = (aTime, valueOf = false) => {
 };
 const djsDefaultUTC = (aTime, valueOf = false) => {
   if (valueOf)
-    return (0, import_parse.djsParseUTC)(aTime).valueOf();
-  return (0, import_parse.djsParseUTC)(aTime).utc();
+    return djsParseUTC(aTime).valueOf();
+  return djsParseUTC(aTime).utc();
 };
 const djsDuration = (aTime, bTime, divisor) => {
   return ((0, import_dayjs.default)(aTime).valueOf() - (0, import_dayjs.default)(bTime).valueOf()) / divisor;
 };
 const djsDurationUTC = (aTime, bTime, divisor) => {
-  return ((0, import_parse.djsParseUTC)(aTime).valueOf() - (0, import_parse.djsParseUTC)(bTime).valueOf()) / divisor;
+  return (djsParseUTC(aTime).valueOf() - djsParseUTC(bTime).valueOf()) / divisor;
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

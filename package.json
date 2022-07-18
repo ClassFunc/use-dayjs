@@ -1,6 +1,6 @@
 {
   "name": "use-dayjs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simpler to use dayjs, support reactjs, nextjs, nodejs, typescripts, use esbuild",
   "main": "./index.cjs.js",
   "module": "./index.esm.js",

@@ -35,7 +35,7 @@ __export(display_exports, {
     djsFormatYYYYMMDDHHMMSSZ: () => djsFormatYYYYMMDDHHMMSSZ,
     djsFromAtTime: () => djsFromAtTime,
     djsFromNow: () => djsFromNow,
-    djsParseUTC: () => import_parse.djsParseUTC,
+    djsParseUTC: () => djsParseUTC,
     djsToArray: () => djsToArray,
     djsToAtTime: () => djsToAtTime,
     djsToDateJs: () => djsToDateJs,
@@ -53,19 +53,25 @@ var import_relativeTime = __toESM(require("dayjs/plugin/relativeTime"));
 var import_calendar = __toESM(require("dayjs/plugin/calendar"));
 var import_toArray = __toESM(require("dayjs/plugin/toArray"));
 var import_toObject = __toESM(require("dayjs/plugin/toObject"));
-var import_parse = require("../parse");
+var import_utc = __toESM(require("dayjs/plugin/utc"));
 import_dayjs.default.extend(import_relativeTime.default);
 import_dayjs.default.extend(import_calendar.default);
 import_dayjs.default.extend(import_toArray.default);
 import_dayjs.default.extend(import_toObject.default);
+import_dayjs.default.extend(import_utc.default);
+const djsParseUTC = (aTime) => {
+    if (!aTime)
+        return (0, import_dayjs.default)().utc();
+    return (0, import_dayjs.default)(aTime).utc();
+};
 const djsFormat = (aTime, format) => {
-  return (0, import_dayjs.default)(aTime).format(format);
+    return (0, import_dayjs.default)(aTime).format(format);
 };
 const djsFromNow = (aTime, withoutSuffix) => {
-  return (0, import_dayjs.default)(aTime).fromNow(withoutSuffix);
+    return (0, import_dayjs.default)(aTime).fromNow(withoutSuffix);
 };
 const djsToNow = (aTime, withoutSuffix) => {
-  return (0, import_dayjs.default)(aTime).toNow(withoutSuffix);
+    return (0, import_dayjs.default)(aTime).toNow(withoutSuffix);
 };
 const djsFromAtTime = (aTime, compared, withoutSuffix) => {
   return (0, import_dayjs.default)(aTime).from(compared, withoutSuffix);
@@ -107,7 +113,7 @@ const djsDayInMonth = (aTime) => {
   return (0, import_dayjs.default)(aTime).daysInMonth();
 };
 const djsFormatUTC = (aTime, format) => {
-  return djsFormat((0, import_parse.djsParseUTC)(aTime), format);
+    return djsFormat(djsParseUTC(aTime), format);
 };
 const djsFormatDDD = (aTime) => {
   return djsFormat(aTime, "ddd");
@@ -128,8 +134,9 @@ const djsFormatYYYY = (aTime) => {
   return djsFormat(aTime, "YYYY");
 };
 const djsFormatYYYYMMDDHHMMSSZ = (aTime) => {
-  return djsFormat((0, import_parse.djsParseUTC)(aTime), "YYYYMMDDTHHmmss") + "Z";
+    return djsFormat(djsParseUTC(aTime), "YYYYMMDDTHHmmss") + "Z";
 };
+console.log(djsFormatYYYYMMDDHHMMSSZ(new Date()));
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
     djsCalendar,

@@ -1,5 +1,5 @@
-import { ConfigType, OpUnitType, QUnitType } from "dayjs";
-import { djsParseUTC } from "../parse";
+import dayjs, { ConfigType, OpUnitType, QUnitType } from "dayjs";
+declare const djsParseUTC: (aTime?: ConfigType) => dayjs.Dayjs;
 declare const djsFormat: (aTime?: ConfigType, format?: string) => string;
 declare const djsFromNow: (aTime?: ConfigType, withoutSuffix?: boolean) => string;
 declare const djsToNow: (aTime?: ConfigType, withoutSuffix?: boolean) => string;

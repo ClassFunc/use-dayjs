@@ -39,10 +39,12 @@ var import_dayjs = __toESM(require("dayjs"));
 var import_utc = __toESM(require("dayjs/plugin/utc"));
 var import_timezone = __toESM(require("dayjs/plugin/timezone"));
 var import_customParseFormat = __toESM(require("dayjs/plugin/customParseFormat"));
-var import_display = require("../display");
 import_dayjs.default.extend(import_utc.default);
 import_dayjs.default.extend(import_timezone.default);
 import_dayjs.default.extend(import_customParseFormat.default);
+const djsFormat = (aTime, format) => {
+    return (0, import_dayjs.default)(aTime).format(format);
+};
 const djsTzSet = (tz) => {
     return import_dayjs.default.tz.setDefault(tz);
 };
@@ -62,7 +64,7 @@ const djsTzFormat = (aTime, format = "YYYY-MM-DD H:mm:ss A Z", tz) => {
 };
 const djsGTM = (timezone2) => {
     let result;
-    const tz = timezone2 ? +djsTzFormat(new Date(), "ZZ", timezone2) / 100 : +(0, import_display.djsFormat)(new Date(), "ZZ") / 100;
+    const tz = timezone2 ? +djsTzFormat(new Date(), "ZZ", timezone2) / 100 : +djsFormat(new Date(), "ZZ") / 100;
     const isInt = Number.isInteger(tz);
     if (!isInt) {
         result = `${`${tz}`.replace(".", ":")}0`;
