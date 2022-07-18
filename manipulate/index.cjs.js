@@ -29,8 +29,11 @@ var manipulate_exports = {};
 __export(manipulate_exports, {
     djsAdd: () => djsAdd,
     djsEndOf: () => djsEndOf,
+    djsEndOfDay: () => djsEndOfDay,
     djsStartOf: () => djsStartOf,
-    djsSubtract: () => djsSubtract
+    djsStartOfDay: () => djsStartOfDay,
+    djsSubtract: () => djsSubtract,
+    djsToDate: () => djsToDate
 });
 module.exports = __toCommonJS(manipulate_exports);
 var import_dayjs = __toESM(require("dayjs"));
@@ -48,10 +51,22 @@ const djsStartOf = (aTime, unit) => {
 const djsEndOf = (aTime, unit) => {
     return (0, import_dayjs.default)(aTime).endOf(unit);
 };
+const djsStartOfDay = (aTime) => {
+    return (0, import_dayjs.default)(aTime).startOf("day");
+};
+const djsEndOfDay = (aTime) => {
+    return (0, import_dayjs.default)(aTime).endOf("day");
+};
+const djsToDate = (aTime) => {
+    return (0, import_dayjs.default)(aTime).toDate();
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
     djsAdd,
     djsEndOf,
+    djsEndOfDay,
     djsStartOf,
-    djsSubtract
+    djsStartOfDay,
+    djsSubtract,
+    djsToDate
 });

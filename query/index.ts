@@ -17,6 +17,10 @@ const djsIsSame = (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType) =>
     return dayjs(aTime).isSame(dayjs(bTime), unit)
 }
 
+const djsIsSameDate = (aTime?: ConfigType, bTime?: ConfigType) => {
+    return dayjs(aTime).isSame(dayjs(bTime), "date")
+}
+
 const djsIsAfter = (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType) => {
     return dayjs(aTime).isAfter(dayjs(bTime), unit)
 }
@@ -29,8 +33,8 @@ const djsSameAfter = (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType)
     return dayjs(aTime).isSameOrAfter(dayjs(bTime), unit)
 }
 
-const djsBetween = (aTime?: ConfigType, bTime?: ConfigType, unit?: OpUnitType, extra?: '()' | '[]' | '[)' | '(]') => {
-    return dayjs().isBetween(dayjs(aTime), dayjs(bTime), unit, extra)
+const djsBetween = (aTime?: ConfigType, bTime?: ConfigType, cTime?: ConfigType, unit?: OpUnitType, extra?: '()' | '[]' | '[)' | '(]') => {
+    return dayjs(aTime).isBetween(dayjs(bTime), dayjs(cTime), unit, extra)
 }
 
 const djsBetweenRange = (aTime?: ConfigType, bTime?: ConfigType, cTime?: ConfigType, unit?: OpUnitType, extra?: '()' | '[]' | '[)' | '(]') => {
@@ -54,5 +58,6 @@ export {
     djsIsLeapYear,
     djsIsSame,
     djsSameAfter,
-    djsSameBefore
+    djsSameBefore,
+    djsIsSameDate
 }

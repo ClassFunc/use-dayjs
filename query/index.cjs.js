@@ -34,6 +34,7 @@ __export(query_exports, {
     djsIsDayjs: () => djsIsDayjs,
     djsIsLeapYear: () => djsIsLeapYear,
     djsIsSame: () => djsIsSame,
+    djsIsSameDate: () => djsIsSameDate,
     djsSameAfter: () => djsSameAfter,
     djsSameBefore: () => djsSameBefore
 });
@@ -53,6 +54,9 @@ const djsIsBefore = (aTime, bTime, unit) => {
 const djsIsSame = (aTime, bTime, unit) => {
     return (0, import_dayjs.default)(aTime).isSame((0, import_dayjs.default)(bTime), unit);
 };
+const djsIsSameDate = (aTime, bTime) => {
+    return (0, import_dayjs.default)(aTime).isSame((0, import_dayjs.default)(bTime), "date");
+};
 const djsIsAfter = (aTime, bTime, unit) => {
     return (0, import_dayjs.default)(aTime).isAfter((0, import_dayjs.default)(bTime), unit);
 };
@@ -62,8 +66,8 @@ const djsSameBefore = (aTime, bTime, unit) => {
 const djsSameAfter = (aTime, bTime, unit) => {
     return (0, import_dayjs.default)(aTime).isSameOrAfter((0, import_dayjs.default)(bTime), unit);
 };
-const djsBetween = (aTime, bTime, unit, extra) => {
-    return (0, import_dayjs.default)().isBetween((0, import_dayjs.default)(aTime), (0, import_dayjs.default)(bTime), unit, extra);
+const djsBetween = (aTime, bTime, cTime, unit, extra) => {
+    return (0, import_dayjs.default)(aTime).isBetween((0, import_dayjs.default)(bTime), (0, import_dayjs.default)(cTime), unit, extra);
 };
 const djsBetweenRange = (aTime, bTime, cTime, unit, extra) => {
     return (0, import_dayjs.default)(aTime).isBetween((0, import_dayjs.default)(bTime), (0, import_dayjs.default)(cTime), unit, extra);
@@ -83,6 +87,7 @@ const djsIsLeapYear = (aTime) => {
     djsIsDayjs,
     djsIsLeapYear,
     djsIsSame,
+    djsIsSameDate,
     djsSameAfter,
     djsSameBefore
 });

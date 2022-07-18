@@ -6,6 +6,7 @@ import weekOfYear from "dayjs/plugin/weekOfYear";
 import quarterOfYear from "dayjs/plugin/quarterOfYear";
 import weekYear from "dayjs/plugin/weekYear";
 import isoWeeksInYear from "dayjs/plugin/isoWeeksInYear";
+import {djsParseUTC} from "../parse/index";
 
 dayjs.extend(weekday)
 dayjs.extend(isoWeek)
@@ -40,6 +41,14 @@ const djsMinute = (aTime?: ConfigType, value: number = 0) => {
 
 const djsHour = (aTime?: ConfigType, value: number = 0) => {
     return dayjs(aTime).hour(value)
+}
+
+const djsWeekDay = (aTime?: ConfigType, week: number = 0, day: number = 0) => {
+    return dayjs(aTime).week(week).day(day)
+}
+
+const djsWeek = (aTime?: ConfigType, value: number = 0) => {
+    return dayjs(aTime).week(value)
 }
 
 const djsDateOfMonth = (aTime?: ConfigType, value: number = 0) => {
@@ -108,6 +117,27 @@ const djsSet = (aTime?: ConfigType, config?: SetProps) => {
         .set('millisecond', config?.millisecond || djsGet(aTime, "millisecond"))
 }
 
+
+const djsDefault = (aTime: ConfigType, valueOf: boolean = false) => {
+    if (valueOf)
+        return dayjs(aTime).valueOf()
+    return dayjs(aTime)
+}
+
+const djsDefaultUTC = (aTime: ConfigType, valueOf: boolean = false) => {
+    if (valueOf)
+        return djsParseUTC(aTime).valueOf()
+    return djsParseUTC(aTime).utc()
+}
+
+const djsDuration = (aTime: ConfigType, bTime: ConfigType, divisor: number) => {
+    return (dayjs(aTime).valueOf() - dayjs(bTime).valueOf()) / divisor
+}
+
+const djsDurationUTC = (aTime: ConfigType, bTime: ConfigType, divisor: number) => {
+    return (djsParseUTC(aTime).valueOf() - djsParseUTC(bTime).valueOf()) / divisor
+}
+
 export {
     djsDateOfMonth,
     djsDayOfWeek,
@@ -125,5 +155,11 @@ export {
     djsWeekInYearISO,
     djsWeekOfYear,
     djsWeekYear,
-    djsYear
+    djsYear,
+    djsWeek,
+    djsWeekDay,
+    djsDuration,
+    djsDefault,
+    djsDefaultUTC,
+    djsDurationUTC
 }

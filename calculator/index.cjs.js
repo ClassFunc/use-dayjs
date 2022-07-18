@@ -32,6 +32,10 @@ __export(calculator_exports, {
   djsDayOfWeekAware: () => djsDayOfWeekAware,
   djsDayOfWeekISO: () => djsDayOfWeekISO,
   djsDayOfYear: () => djsDayOfYear,
+  djsDefault: () => djsDefault,
+  djsDefaultUTC: () => djsDefaultUTC,
+  djsDuration: () => djsDuration,
+  djsDurationUTC: () => djsDurationUTC,
   djsGet: () => djsGet,
   djsHour: () => djsHour,
   djsMillisecond: () => djsMillisecond,
@@ -40,6 +44,8 @@ __export(calculator_exports, {
   djsQuarter: () => djsQuarter,
   djsSecond: () => djsSecond,
   djsSet: () => djsSet,
+  djsWeek: () => djsWeek,
+  djsWeekDay: () => djsWeekDay,
   djsWeekInYearISO: () => djsWeekInYearISO,
   djsWeekOfYear: () => djsWeekOfYear,
   djsWeekYear: () => djsWeekYear,
@@ -54,6 +60,7 @@ var import_weekOfYear = __toESM(require("dayjs/plugin/weekOfYear"));
 var import_quarterOfYear = __toESM(require("dayjs/plugin/quarterOfYear"));
 var import_weekYear = __toESM(require("dayjs/plugin/weekYear"));
 var import_isoWeeksInYear = __toESM(require("dayjs/plugin/isoWeeksInYear"));
+var import_parse = require("../parse/index");
 import_dayjs.default.extend(import_weekday.default);
 import_dayjs.default.extend(import_isoWeek.default);
 import_dayjs.default.extend(import_dayOfYear.default);
@@ -72,6 +79,12 @@ const djsMinute = (aTime, value = 0) => {
 };
 const djsHour = (aTime, value = 0) => {
   return (0, import_dayjs.default)(aTime).hour(value);
+};
+const djsWeekDay = (aTime, week = 0, day = 0) => {
+  return (0, import_dayjs.default)(aTime).week(week).day(day);
+};
+const djsWeek = (aTime, value = 0) => {
+  return (0, import_dayjs.default)(aTime).week(value);
 };
 const djsDateOfMonth = (aTime, value = 0) => {
   return (0, import_dayjs.default)(aTime).date(value);
@@ -116,6 +129,22 @@ const djsSet = (aTime, config) => {
     aTime = new Date();
   return (0, import_dayjs.default)(aTime).set("year", (config == null ? void 0 : config.year) || djsGet(aTime, "year")).set("month", (config == null ? void 0 : config.month) || djsGet(aTime, "month")).set("date", (config == null ? void 0 : config.date) || djsGet(aTime, "date")).set("day", (config == null ? void 0 : config.day) || djsGet(aTime, "day")).set("hour", (config == null ? void 0 : config.hour) || djsGet(aTime, "hour")).set("minute", (config == null ? void 0 : config.minute) || djsGet(aTime, "minute")).set("second", (config == null ? void 0 : config.second) || djsGet(aTime, "second")).set("millisecond", (config == null ? void 0 : config.millisecond) || djsGet(aTime, "millisecond"));
 };
+const djsDefault = (aTime, valueOf = false) => {
+  if (valueOf)
+    return (0, import_dayjs.default)(aTime).valueOf();
+  return (0, import_dayjs.default)(aTime);
+};
+const djsDefaultUTC = (aTime, valueOf = false) => {
+  if (valueOf)
+    return (0, import_parse.djsParseUTC)(aTime).valueOf();
+  return (0, import_parse.djsParseUTC)(aTime).utc();
+};
+const djsDuration = (aTime, bTime, divisor) => {
+  return ((0, import_dayjs.default)(aTime).valueOf() - (0, import_dayjs.default)(bTime).valueOf()) / divisor;
+};
+const djsDurationUTC = (aTime, bTime, divisor) => {
+  return ((0, import_parse.djsParseUTC)(aTime).valueOf() - (0, import_parse.djsParseUTC)(bTime).valueOf()) / divisor;
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   djsDateOfMonth,
@@ -123,6 +152,10 @@ const djsSet = (aTime, config) => {
   djsDayOfWeekAware,
   djsDayOfWeekISO,
   djsDayOfYear,
+  djsDefault,
+  djsDefaultUTC,
+  djsDuration,
+  djsDurationUTC,
   djsGet,
   djsHour,
   djsMillisecond,
@@ -131,6 +164,8 @@ const djsSet = (aTime, config) => {
   djsQuarter,
   djsSecond,
   djsSet,
+  djsWeek,
+  djsWeekDay,
   djsWeekInYearISO,
   djsWeekOfYear,
   djsWeekYear,

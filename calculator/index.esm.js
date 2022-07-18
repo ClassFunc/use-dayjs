@@ -7,6 +7,7 @@ import weekOfYear from "dayjs/plugin/weekOfYear";
 import quarterOfYear from "dayjs/plugin/quarterOfYear";
 import weekYear from "dayjs/plugin/weekYear";
 import isoWeeksInYear from "dayjs/plugin/isoWeeksInYear";
+import {djsParseUTC} from "../parse/index";
 
 dayjs.extend(weekday);
 dayjs.extend(isoWeek);
@@ -26,6 +27,12 @@ const djsMinute = (aTime, value = 0) => {
 };
 const djsHour = (aTime, value = 0) => {
   return dayjs(aTime).hour(value);
+};
+const djsWeekDay = (aTime, week = 0, day = 0) => {
+  return dayjs(aTime).week(week).day(day);
+};
+const djsWeek = (aTime, value = 0) => {
+  return dayjs(aTime).week(value);
 };
 const djsDateOfMonth = (aTime, value = 0) => {
   return dayjs(aTime).date(value);
@@ -70,12 +77,32 @@ const djsSet = (aTime, config) => {
     aTime = new Date();
   return dayjs(aTime).set("year", (config == null ? void 0 : config.year) || djsGet(aTime, "year")).set("month", (config == null ? void 0 : config.month) || djsGet(aTime, "month")).set("date", (config == null ? void 0 : config.date) || djsGet(aTime, "date")).set("day", (config == null ? void 0 : config.day) || djsGet(aTime, "day")).set("hour", (config == null ? void 0 : config.hour) || djsGet(aTime, "hour")).set("minute", (config == null ? void 0 : config.minute) || djsGet(aTime, "minute")).set("second", (config == null ? void 0 : config.second) || djsGet(aTime, "second")).set("millisecond", (config == null ? void 0 : config.millisecond) || djsGet(aTime, "millisecond"));
 };
+const djsDefault = (aTime, valueOf = false) => {
+  if (valueOf)
+    return dayjs(aTime).valueOf();
+  return dayjs(aTime);
+};
+const djsDefaultUTC = (aTime, valueOf = false) => {
+  if (valueOf)
+    return djsParseUTC(aTime).valueOf();
+  return djsParseUTC(aTime).utc();
+};
+const djsDuration = (aTime, bTime, divisor) => {
+  return (dayjs(aTime).valueOf() - dayjs(bTime).valueOf()) / divisor;
+};
+const djsDurationUTC = (aTime, bTime, divisor) => {
+  return (djsParseUTC(aTime).valueOf() - djsParseUTC(bTime).valueOf()) / divisor;
+};
 export {
   djsDateOfMonth,
   djsDayOfWeek,
   djsDayOfWeekAware,
   djsDayOfWeekISO,
   djsDayOfYear,
+  djsDefault,
+  djsDefaultUTC,
+  djsDuration,
+  djsDurationUTC,
   djsGet,
   djsHour,
   djsMillisecond,
@@ -84,6 +111,8 @@ export {
   djsQuarter,
   djsSecond,
   djsSet,
+  djsWeek,
+  djsWeekDay,
   djsWeekInYearISO,
   djsWeekOfYear,
   djsWeekYear,

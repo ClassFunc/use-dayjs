@@ -27,6 +27,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", {value: true}), mod);
 var timezone_exports = {};
 __export(timezone_exports, {
+    djsGTM: () => djsGTM,
     djsToZone: () => djsToZone,
     djsTz: () => djsTz,
     djsTzFormat: () => djsTzFormat,
@@ -38,6 +39,7 @@ var import_dayjs = __toESM(require("dayjs"));
 var import_utc = __toESM(require("dayjs/plugin/utc"));
 var import_timezone = __toESM(require("dayjs/plugin/timezone"));
 var import_customParseFormat = __toESM(require("dayjs/plugin/customParseFormat"));
+var import_display = require("../display");
 import_dayjs.default.extend(import_utc.default);
 import_dayjs.default.extend(import_timezone.default);
 import_dayjs.default.extend(import_customParseFormat.default);
@@ -58,8 +60,21 @@ const djsTzFormat = (aTime, format = "YYYY-MM-DD H:mm:ss A Z", tz) => {
         tz = import_dayjs.default.tz.guess();
     return import_dayjs.default.tz(aTime, format, tz);
 };
+const djsGTM = (timezone2) => {
+    let result;
+    const tz = timezone2 ? +djsTzFormat(new Date(), "ZZ", timezone2) / 100 : +(0, import_display.djsFormat)(new Date(), "ZZ") / 100;
+    const isInt = Number.isInteger(tz);
+    if (!isInt) {
+        result = `${`${tz}`.replace(".", ":")}0`;
+        result = ["-", "+"].includes(`${result}`.charAt(0)) ? `${result}` : `+${result}`;
+    } else {
+        result = ["-", "+"].includes(`${tz}`.charAt(0)) ? `${tz}` : `+${tz}`;
+    }
+    return `GTM${result}`;
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+    djsGTM,
     djsToZone,
     djsTz,
     djsTzFormat,

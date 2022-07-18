@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import {djsFormat} from "../display";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -24,7 +25,20 @@ const djsTzFormat = (aTime, format = "YYYY-MM-DD H:mm:ss A Z", tz) => {
     tz = dayjs.tz.guess();
   return dayjs.tz(aTime, format, tz);
 };
+const djsGTM = (timezone2) => {
+  let result;
+  const tz = timezone2 ? +djsTzFormat(new Date(), "ZZ", timezone2) / 100 : +djsFormat(new Date(), "ZZ") / 100;
+  const isInt = Number.isInteger(tz);
+  if (!isInt) {
+    result = `${`${tz}`.replace(".", ":")}0`;
+    result = ["-", "+"].includes(`${result}`.charAt(0)) ? `${result}` : `+${result}`;
+  } else {
+    result = ["-", "+"].includes(`${tz}`.charAt(0)) ? `${tz}` : `+${tz}`;
+  }
+  return `GTM${result}`;
+};
 export {
+  djsGTM,
   djsToZone,
   djsTz,
   djsTzFormat,

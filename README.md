@@ -1,6 +1,6 @@
 ## use-dayjs
 
-It's simpler to use dayjs
+Simpler to use dayjs
 
 ## Support for
 
@@ -39,7 +39,8 @@ djsSet(new Date(), {
 More
 Actions
 
-1.Calculator
+1.
+Calculator
 
     djsDateOfMonth,
     djsDayOfWeek,
@@ -47,21 +48,28 @@ Actions
     djsDayOfWeekISO,
     djsSet,
     djsDayOfYear,
-    djsGet,
-    djsHour,
-    djsMillisecond,
-    djsMinute,
-    djsMonth,
-    djsQuarter,
-    djsSecond,
-    djsWeekInYearISO,
-    djsWeekOfYear,
-    djsWeekYear,
-    djsYear
+        djsGet,
+        djsHour,
+        djsMillisecond,
+        djsMinute,
+        djsMonth,
+        djsQuarter,
+        djsSecond,
+        djsWeekInYearISO,
+        djsWeekOfYear,
+        djsWeekYear,
+        djsYear,
+        djsWeek,
+        djsWeekDay,
+        djsDuration,
+        djsDefault,
+        djsDefaultUTC,
+        djsDurationUTC
 
-2.Display
+2.
+Display
 
-    djsFormat,
+djsFormat,
     djsFromNow,
     djsFromAtTime,
     djsToAtTime,
@@ -76,17 +84,29 @@ Actions
     djsToJson,
     djsToObject,
     djsToString,
-    djsUnixTimestamp
+    djsUnixTimestamp,
+    djsParseUTC,
+    djsFormatDDD,
+    djsFormatDDDD,
+    djsFormatDDMM,
+    djsFormatMMDD,
+    djsFormatUTC,
+    djsFormatYYYY,
+    djsFormatYYYYMMDD,
+    djsFormatYYYYMMDDHHMMSSZ,
 
-3.Locale
 
-    djsSetLocale,
+    3.
+Locale
+
+djsSetLocale,
     djsUTCOffset,
     djsUTC
 
-4.Manipulate
+4.
+Manipulate
 
-    djsAdd,
+djsAdd,
     djsEndOf,
     djsStartOf,
     djsSubtract
@@ -101,9 +121,10 @@ Actions
     djsNowUTC,
     djsClone
 
-6.Query
+6.
+Query
 
-    djsBetween,
+djsBetween,
     djsBetweenRange,
     djsIsAfter,
     djsIsBefore,
@@ -111,13 +132,16 @@ Actions
     djsIsLeapYear,
     djsIsSame,
     djsSameAfter,
-    djsSameBefore
+    djsSameBefore,
+    djsIsSameDate
 
-7.Timezone
+7.
+Timezone
 
-    djsTz,
+djsTz,
     djsTzSet,
     djsToZone,
     djsTzGuess,
-    djsTzFormat
+    djsTzFormat,
+    djsGTM
 ```

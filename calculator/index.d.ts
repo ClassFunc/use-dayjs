@@ -13,6 +13,8 @@ declare const djsMillisecond: (aTime?: ConfigType, value?: number) => dayjs.Dayj
 declare const djsSecond: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;
 declare const djsMinute: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;
 declare const djsHour: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;
+declare const djsWeekDay: (aTime?: ConfigType, week?: number, day?: number) => dayjs.Dayjs;
+declare const djsWeek: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;
 declare const djsDateOfMonth: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;
 declare const djsDayOfWeek: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;
 declare const djsDayOfWeekAware: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;
@@ -26,4 +28,8 @@ declare const djsWeekYear: (aTime?: ConfigType) => number;
 declare const djsWeekInYearISO: (aTime?: ConfigType) => number;
 declare const djsGet: (aTime?: ConfigType, type?: UnitType) => number;
 declare const djsSet: (aTime?: ConfigType, config?: SetProps) => dayjs.Dayjs;
-export { djsDateOfMonth, djsDayOfWeek, djsDayOfWeekAware, djsDayOfWeekISO, djsSet, djsDayOfYear, djsGet, djsHour, djsMillisecond, djsMinute, djsMonth, djsQuarter, djsSecond, djsWeekInYearISO, djsWeekOfYear, djsWeekYear, djsYear };
+declare const djsDefault: (aTime: ConfigType, valueOf?: boolean) => number | dayjs.Dayjs;
+declare const djsDefaultUTC: (aTime: ConfigType, valueOf?: boolean) => number | dayjs.Dayjs;
+declare const djsDuration: (aTime: ConfigType, bTime: ConfigType, divisor: number) => number;
+declare const djsDurationUTC: (aTime: ConfigType, bTime: ConfigType, divisor: number) => number;
+export { djsDateOfMonth, djsDayOfWeek, djsDayOfWeekAware, djsDayOfWeekISO, djsSet, djsDayOfYear, djsGet, djsHour, djsMillisecond, djsMinute, djsMonth, djsQuarter, djsSecond, djsWeekInYearISO, djsWeekOfYear, djsWeekYear, djsYear, djsWeek, djsWeekDay, djsDuration, djsDefault, djsDefaultUTC, djsDurationUTC };

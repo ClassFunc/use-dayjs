@@ -123,4 +123,13 @@ export {
     djsToObject,
     djsToString,
     djsUnixTimestamp,
+    djsParseUTC,
+    djsFormatDDD,
+    djsFormatDDDD,
+    djsFormatDDMM,
+    djsFormatMMDD,
+    djsFormatUTC,
+    djsFormatYYYY,
+    djsFormatYYYYMMDD,
+    djsFormatYYYYMMDDHHMMSSZ,
 }

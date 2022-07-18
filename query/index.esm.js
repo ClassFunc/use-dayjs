@@ -15,6 +15,9 @@ const djsIsBefore = (aTime, bTime, unit) => {
 const djsIsSame = (aTime, bTime, unit) => {
   return dayjs(aTime).isSame(dayjs(bTime), unit);
 };
+const djsIsSameDate = (aTime, bTime) => {
+  return dayjs(aTime).isSame(dayjs(bTime), "date");
+};
 const djsIsAfter = (aTime, bTime, unit) => {
   return dayjs(aTime).isAfter(dayjs(bTime), unit);
 };
@@ -24,8 +27,8 @@ const djsSameBefore = (aTime, bTime, unit) => {
 const djsSameAfter = (aTime, bTime, unit) => {
   return dayjs(aTime).isSameOrAfter(dayjs(bTime), unit);
 };
-const djsBetween = (aTime, bTime, unit, extra) => {
-  return dayjs().isBetween(dayjs(aTime), dayjs(bTime), unit, extra);
+const djsBetween = (aTime, bTime, cTime, unit, extra) => {
+  return dayjs(aTime).isBetween(dayjs(bTime), dayjs(cTime), unit, extra);
 };
 const djsBetweenRange = (aTime, bTime, cTime, unit, extra) => {
   return dayjs(aTime).isBetween(dayjs(bTime), dayjs(cTime), unit, extra);
@@ -44,6 +47,7 @@ export {
   djsIsDayjs,
   djsIsLeapYear,
   djsIsSame,
+  djsIsSameDate,
   djsSameAfter,
   djsSameBefore
 };

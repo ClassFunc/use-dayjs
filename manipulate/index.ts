@@ -22,10 +22,27 @@ const djsStartOf = (aTime?: ConfigType, unit: OpUnitType) => {
 const djsEndOf = (aTime?: ConfigType, unit: OpUnitType) => {
     return dayjs(aTime).endOf(unit)
 }
+// @ts-ignore
+const djsStartOfDay = (aTime?: ConfigType) => {
+    return dayjs(aTime).startOf("day")
+}
+
+// @ts-ignore
+const djsEndOfDay = (aTime?: ConfigType) => {
+    return dayjs(aTime).endOf("day")
+}
+
+// @ts-ignore
+const djsToDate = (aTime?: ConfigType) => {
+    return dayjs(aTime).toDate()
+}
 
 export {
     djsAdd,
     djsEndOf,
     djsStartOf,
-    djsSubtract
+    djsSubtract,
+    djsEndOfDay,
+    djsStartOfDay,
+    djsToDate
 }

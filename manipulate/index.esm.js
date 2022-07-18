@@ -15,9 +15,21 @@ const djsStartOf = (aTime, unit) => {
 const djsEndOf = (aTime, unit) => {
   return dayjs(aTime).endOf(unit);
 };
+const djsStartOfDay = (aTime) => {
+  return dayjs(aTime).startOf("day");
+};
+const djsEndOfDay = (aTime) => {
+  return dayjs(aTime).endOf("day");
+};
+const djsToDate = (aTime) => {
+  return dayjs(aTime).toDate();
+};
 export {
   djsAdd,
   djsEndOf,
+  djsEndOfDay,
   djsStartOf,
-  djsSubtract
+  djsStartOfDay,
+  djsSubtract,
+  djsToDate
 };
