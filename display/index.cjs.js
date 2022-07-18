@@ -136,7 +136,6 @@ const djsFormatYYYY = (aTime) => {
 const djsFormatYYYYMMDDHHMMSSZ = (aTime) => {
     return djsFormat(djsParseUTC(aTime), "YYYYMMDDTHHmmss") + "Z";
 };
-console.log(djsFormatYYYYMMDDHHMMSSZ(new Date()));
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
     djsCalendar,

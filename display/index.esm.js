@@ -88,7 +88,6 @@ const djsFormatYYYY = (aTime) => {
 const djsFormatYYYYMMDDHHMMSSZ = (aTime) => {
   return djsFormat(djsParseUTC(aTime), "YYYYMMDDTHHmmss") + "Z";
 };
-console.log(djsFormatYYYYMMDDHHMMSSZ(new Date()));
 export {
   djsCalendar,
   djsDayInMonth,

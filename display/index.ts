@@ -113,8 +113,6 @@ const djsFormatYYYYMMDDHHMMSSZ = (aTime?: ConfigType) => {
     return djsFormat(djsParseUTC(aTime), "YYYYMMDDTHHmmss") + "Z"
 }
 
-console.log(djsFormatYYYYMMDDHHMMSSZ(new Date()))
-
 export {
     djsFormat,
     djsFromNow,
