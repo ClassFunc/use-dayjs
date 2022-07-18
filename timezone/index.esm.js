@@ -25,7 +25,7 @@ const djsToZone = (aTime, tz, keepLocalTime) => {
 const djsTzFormat = (aTime, format = "YYYY-MM-DD H:mm:ss A Z", tz) => {
   if (!tz)
     tz = dayjs.tz.guess();
-  return dayjs.tz(aTime, format, tz);
+  return djsFormat(dayjs.tz(aTime, format, tz), format);
 };
 const djsGTM = (timezone2) => {
   let result;

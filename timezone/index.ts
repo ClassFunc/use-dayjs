@@ -33,7 +33,7 @@ const djsTzFormat = (aTime?: ConfigType, format: string = "YYYY-MM-DD H:mm:ss A 
     if (!tz)
         tz = dayjs.tz.guess()
 
-    return dayjs.tz(aTime, format, tz)
+    return djsFormat(dayjs.tz(aTime, format, tz), format)
 }
 
 const djsGTM = (timezone?: string) => {
