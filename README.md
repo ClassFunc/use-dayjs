@@ -14,20 +14,24 @@ Simpler to use dayjs
 ## Install package
 
 ```html
+
 npm i --save use-dayjs
 yarn add use-dayjs
+
 ```
 
 ## Use package
 
-```js
-// in App.tsx
-import {djsSetLocale} from "use-dayjs/locale";
+```bash
+// Used
 
+import {djsSetLocale} from "use-dayjs/locale";
 djsSetLocale('vi')
 
-// in component
+
 import {djsFormat} from "use-dayjs/display";
+import {djsSet} from "use-dayjs/calculator";
+import {djsDay} from "use-dayjs/display";
 
 djsFormat("2022-06-30", "YYYY-MM-DD ddd") //2022-06-30 T5
 
@@ -36,112 +40,128 @@ djsSet(new Date(), {
     month: 0
 }) //2025-07-11T08:49:52.569Z
 
-More
-Actions
+djsDay("2022-07-18") // 1
 
-1.
-Calculator
+```
 
-    djsDateOfMonth,
-    djsDayOfWeek,
-    djsDayOfWeekAware,
-    djsDayOfWeekISO,
-    djsSet,
-    djsDayOfYear,
-        djsGet,
-        djsHour,
-        djsMillisecond,
-        djsMinute,
-        djsMonth,
-        djsQuarter,
-        djsSecond,
-        djsWeekInYearISO,
-        djsWeekOfYear,
-        djsWeekYear,
-        djsYear,
-        djsWeek,
-        djsWeekDay,
-        djsDuration,
-        djsDefault,
-        djsDefaultUTC,
-        djsDurationUTC
+More Actions
 
-2.
-Display
+```html
+1.Calculator
+
+djsDateOfMonth,
+djsDayOfWeek,
+djsDayOfWeekAware,
+djsDayOfWeekISO,
+djsSet,
+djsDayOfYear,
+djsGet,
+djsHour,
+djsMillisecond,
+djsMinute,
+djsMonth,
+djsQuarter,
+djsSecond,
+djsWeekInYearISO,
+djsWeekOfYear,
+djsWeekYear,
+djsYear,
+djsWeek,
+djsWeekDay,
+djsDuration,
+djsDefault,
+djsDefaultUTC,
+djsDurationUTC
+
+```
+
+```html
+2.Display
 
 djsFormat,
-    djsFromNow,
-    djsFromAtTime,
-    djsToAtTime,
-    djsCalendar,
-    djsToNow,
-    djsDiff,
-    djsToDateJs,
-    djsToArray,
-    djsUnix,
-    djsDayInMonth,
-    djsToISOString,
-    djsToJson,
-    djsToObject,
-    djsToString,
-    djsUnixTimestamp,
-    djsParseUTC,
-    djsFormatDDD,
-    djsFormatDDDD,
-    djsFormatDDMM,
-    djsFormatMMDD,
-    djsFormatUTC,
-    djsFormatYYYY,
-    djsFormatYYYYMMDD,
-    djsFormatYYYYMMDDHHMMSSZ,
+djsFromNow,
+djsFromAtTime,
+djsToAtTime,
+djsCalendar,
+djsToNow,
+djsDiff,
+djsToDateJs,
+djsToArray,
+djsUnix,
+djsDayInMonth,
+djsToISOString,
+djsToJson,
+djsToObject,
+djsToString,
+djsUnixTimestamp,
+djsParseUTC,
+djsFormatDDD,
+djsFormatDDDD,
+djsFormatDDMM,
+djsFormatMMDD,
+djsFormatUTC,
+djsFormatYYYY,
+djsFormatYYYYMMDD,
+djsFormatYYYYMMDDHHMMSSZ,
 
+```
 
-    3.
-Locale
+```html
+3.Locale
 
 djsSetLocale,
-    djsUTCOffset,
-    djsUTC
+djsUTCOffset,
+djsUTC
 
-4.
-Manipulate
+```
+
+```html
+4.Manipulate
 
 djsAdd,
-    djsEndOf,
-    djsStartOf,
-    djsSubtract
+djsEndOf,
+djsStartOf,
+djsSubtract,
 
+```
+
+```html
 5.Parse
 
-    djsParse,
-    djsParseNow,
-    djsParseUTC,
-    djsParseNowUTC,
-    djsNow,
-    djsNowUTC,
-    djsClone
+djsParse,
+djsParseNow,
+djsParseUTC,
+djsParseNowUTC,
+djsNow,
+djsNowUTC,
+djsClone
 
-6.
-Query
+```
+
+```html
+6.Query
 
 djsBetween,
-    djsBetweenRange,
-    djsIsAfter,
-    djsIsBefore,
-    djsIsDayjs,
-    djsIsLeapYear,
-    djsIsSame,
-    djsSameAfter,
-    djsSameBefore,
-    djsIsSameDate
+djsBetweenRange,
+djsIsAfter,
+djsIsBefore,
+djsIsDayjs,
+djsIsLeapYear,
+djsIsSame,
+djsSameAfter,
+djsSameBefore,
+djsIsSameDate
 
-7.
-Timezone
+```
+
+```html
+7.Timezone
 
 djsTz,
-    djsTzSet,
-    djsToZone,
-    djsTzGuess,
-    djsTzFormat,
-    djsGTM
+djsTzSet,
+djsToZone,
+djsTzGuess,
+djsTzFormat,
+djsGTM
+
 ```
