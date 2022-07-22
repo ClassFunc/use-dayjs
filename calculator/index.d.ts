@@ -1,13 +1,12 @@
 import dayjs, { ConfigType, UnitType } from "dayjs";
 declare type SetProps = {
-    millisecond?: number;
-    second?: number;
-    minute?: number;
-    hour?: number;
-    day?: number;
-    month?: number;
-    year?: number;
-    date?: number;
+    years?: number;
+    months?: number;
+    days?: number;
+    hours?: number;
+    minutes?: number;
+    seconds?: number;
+    milliseconds?: number;
 };
 declare const djsParseUTC: (aTime?: ConfigType) => dayjs.Dayjs;
 declare const djsMillisecondValue: (aTime?: ConfigType, value?: number) => dayjs.Dayjs;

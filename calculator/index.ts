@@ -17,15 +17,14 @@ dayjs.extend(weekYear)
 dayjs.extend(isoWeeksInYear)
 dayjs.extend(utc)
 
-type SetProps = {
-    millisecond?: number,
-    second?: number,
-    minute?: number,
-    hour?: number,
-    day?: number,
-    month?: number,
-    year?: number,
-    date?: number
+declare type SetProps = {
+    years?: number,
+    months?: number,
+    days?: number,
+    hours?: number,
+    minutes?: number,
+    seconds?: number,
+    milliseconds?: number,
 }
 
 const djsParseUTC = (aTime?: ConfigType) => {
@@ -149,15 +148,24 @@ const djsSet = (aTime?: ConfigType, config?: SetProps) => {
     if (!aTime)
         aTime = new Date()
 
+    const {
+        years = djsGet(aTime, "years"),
+        months = djsGet(aTime, "months"),
+        days = djsGet(aTime, "days"),
+        hours = djsGet(aTime, "hours"),
+        minutes = djsGet(aTime, "minutes"),
+        seconds = djsGet(aTime, "seconds"),
+        milliseconds = djsGet(aTime, "milliseconds"),
+    }: any = config
+
     return dayjs(aTime)
-        .set('year', config?.year || djsGet(aTime, "year"))
-        .set('month', config?.month || djsGet(aTime, "month"))
-        .set('date', config?.date || djsGet(aTime, "date"))
-        .set('day', config?.day || djsGet(aTime, "day"))
-        .set('hour', config?.hour || djsGet(aTime, "hour"))
-        .set('minute', config?.minute || djsGet(aTime, "minute"))
-        .set('second', config?.second || djsGet(aTime, "second"))
-        .set('millisecond', config?.millisecond || djsGet(aTime, "millisecond"))
+        .set('year', years)
+        .set('month', months)
+        .set('day', days)
+        .set('hour', hours)
+        .set('minute', minutes)
+        .set('second', seconds)
+        .set('millisecond', milliseconds)
 }
 
 

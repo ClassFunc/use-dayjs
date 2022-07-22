@@ -108,7 +108,16 @@ const djsGet = (aTime, type = "millisecond") => {
 const djsSet = (aTime, config) => {
   if (!aTime)
     aTime = new Date();
-  return dayjs(aTime).set("year", (config == null ? void 0 : config.year) || djsGet(aTime, "year")).set("month", (config == null ? void 0 : config.month) || djsGet(aTime, "month")).set("date", (config == null ? void 0 : config.date) || djsGet(aTime, "date")).set("day", (config == null ? void 0 : config.day) || djsGet(aTime, "day")).set("hour", (config == null ? void 0 : config.hour) || djsGet(aTime, "hour")).set("minute", (config == null ? void 0 : config.minute) || djsGet(aTime, "minute")).set("second", (config == null ? void 0 : config.second) || djsGet(aTime, "second")).set("millisecond", (config == null ? void 0 : config.millisecond) || djsGet(aTime, "millisecond"));
+  const {
+    years = djsGet(aTime, "years"),
+    months = djsGet(aTime, "months"),
+    days = djsGet(aTime, "days"),
+    hours = djsGet(aTime, "hours"),
+    minutes = djsGet(aTime, "minutes"),
+    seconds = djsGet(aTime, "seconds"),
+    milliseconds = djsGet(aTime, "milliseconds")
+  } = config;
+  return dayjs(aTime).set("year", years).set("month", months).set("day", days).set("hour", hours).set("minute", minutes).set("second", seconds).set("millisecond", milliseconds);
 };
 const djsDefault = (aTime, valueOf = false) => {
   if (valueOf)
