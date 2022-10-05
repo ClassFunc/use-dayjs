@@ -1,4 +1,3 @@
-"use strict";
 import dayjs from "dayjs";
 import weekday from "dayjs/plugin/weekday";
 import isoWeek from "dayjs/plugin/isoWeek";

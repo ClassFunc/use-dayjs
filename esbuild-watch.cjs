@@ -35,6 +35,15 @@ function buildFile(f) {
 
     require('esbuild').build({
         ...common,
+        format: 'iife',
+        watch,
+        outfile: f.replace('.ts', '.iife.js'),
+    }).then(() => {
+        console.log(`👀 watching esm ${f} ...`);
+    });
+
+    require('esbuild').build({
+        ...common,
         format: 'cjs',
         platform: 'node',
         watch,

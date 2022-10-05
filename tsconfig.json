@@ -4,10 +4,10 @@
     "module": "commonjs",
     "declaration": true,
     "strict": true,
-    "esModuleInterop": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "esModuleInterop": true
   },
   "include": [
     "index.ts"

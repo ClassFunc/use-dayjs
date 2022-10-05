@@ -1,0 +1,159 @@
+"use strict";
+(() => {
+    var __create = Object.create;
+    var __defProp = Object.defineProperty;
+    var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+    var __getOwnPropNames = Object.getOwnPropertyNames;
+    var __getProtoOf = Object.getPrototypeOf;
+    var __hasOwnProp = Object.prototype.hasOwnProperty;
+    var __copyProps = (to, from, except, desc) => {
+        if (from && typeof from === "object" || typeof from === "function") {
+            for (let key of __getOwnPropNames(from))
+                if (!__hasOwnProp.call(to, key) && key !== except)
+                    __defProp(to, key, {
+                        get: () => from[key],
+                        enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+                    });
+        }
+        return to;
+    };
+    var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+        isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {value: mod, enumerable: true}) : target,
+        mod
+    ));
+    var import_dayjs = __toESM(require("dayjs"));
+    var import_weekday = __toESM(require("dayjs/plugin/weekday"));
+    var import_isoWeek = __toESM(require("dayjs/plugin/isoWeek"));
+    var import_dayOfYear = __toESM(require("dayjs/plugin/dayOfYear"));
+    var import_weekOfYear = __toESM(require("dayjs/plugin/weekOfYear"));
+    var import_quarterOfYear = __toESM(require("dayjs/plugin/quarterOfYear"));
+    var import_weekYear = __toESM(require("dayjs/plugin/weekYear"));
+    var import_isoWeeksInYear = __toESM(require("dayjs/plugin/isoWeeksInYear"));
+    var import_utc = __toESM(require("dayjs/plugin/utc"));
+    import_dayjs.default.extend(import_weekday.default);
+    import_dayjs.default.extend(import_isoWeek.default);
+    import_dayjs.default.extend(import_dayOfYear.default);
+    import_dayjs.default.extend(import_weekOfYear.default);
+    import_dayjs.default.extend(import_quarterOfYear.default);
+    import_dayjs.default.extend(import_weekYear.default);
+    import_dayjs.default.extend(import_isoWeeksInYear.default);
+    import_dayjs.default.extend(import_utc.default);
+    const djsParseUTC = (aTime) => {
+        if (!aTime)
+            return (0, import_dayjs.default)().utc();
+        return (0, import_dayjs.default)(aTime).utc();
+    };
+    const djsMillisecondValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).millisecond(value);
+    };
+    const djsMillisecond = (aTime) => {
+        return (0, import_dayjs.default)(aTime).millisecond();
+    };
+    const djsSecondValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).second(value);
+    };
+    const djsSecond = (aTime) => {
+        return (0, import_dayjs.default)(aTime).second();
+    };
+    const djsMinuteValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).minute(value);
+    };
+    const djsMinute = (aTime) => {
+        return (0, import_dayjs.default)(aTime).minute();
+    };
+    const djsHourValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).hour(value);
+    };
+    const djsHour = (aTime) => {
+        return (0, import_dayjs.default)(aTime).hour();
+    };
+    const djsDayValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).day(value);
+    };
+    const djsDay = (aTime) => {
+        return (0, import_dayjs.default)(aTime).day();
+    };
+    const djsWeekValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).week(value);
+    };
+    const djsWeek = (aTime) => {
+        return (0, import_dayjs.default)(aTime).week();
+    };
+    const djsDateOfMonth = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).date(value);
+    };
+    const djsDayOfWeek = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).day(value);
+    };
+    const djsDayOfWeekAware = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).weekday(value);
+    };
+    const djsDayOfWeekISO = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).isoWeekday(value);
+    };
+    const djsDayOfYear = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).dayOfYear(value);
+    };
+    const djsWeekOfYear = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).isoWeek(value);
+    };
+    const djsMonthValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).month(value);
+    };
+    const djsMonth = (aTime) => {
+        return (0, import_dayjs.default)(aTime).month();
+    };
+    const djsQuarterValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).quarter(value);
+    };
+    const djsQuarter = (aTime) => {
+        return (0, import_dayjs.default)(aTime).quarter();
+    };
+    const djsYearValue = (aTime, value = 0) => {
+        return (0, import_dayjs.default)(aTime).year(value);
+    };
+    const djsYear = (aTime) => {
+        return (0, import_dayjs.default)(aTime).year();
+    };
+    const djsWeekYear = (aTime) => {
+        return (0, import_dayjs.default)(aTime).weekYear();
+    };
+    const djsWeekInYearISO = (aTime) => {
+        return (0, import_dayjs.default)(aTime).isoWeeksInYear();
+    };
+    const djsGet = (aTime, type = "millisecond") => {
+        if (!aTime)
+            return (0, import_dayjs.default)().get(type);
+        return (0, import_dayjs.default)(aTime).get(type);
+    };
+    const djsSet = (aTime, config) => {
+        if (!aTime)
+            aTime = new Date();
+        const {
+            years = djsGet(aTime, "years"),
+            months = djsGet(aTime, "months"),
+            days = djsGet(aTime, "days"),
+            hours = djsGet(aTime, "hours"),
+            minutes = djsGet(aTime, "minutes"),
+            seconds = djsGet(aTime, "seconds"),
+            milliseconds = djsGet(aTime, "milliseconds")
+        } = config;
+        return (0, import_dayjs.default)(aTime).set("year", years).set("month", months).set("day", days).set("hour", hours).set("minute", minutes).set("second", seconds).set("millisecond", milliseconds);
+    };
+    const djsDefault = (aTime, valueOf = false) => {
+        if (valueOf)
+            return (0, import_dayjs.default)(aTime).valueOf();
+        return (0, import_dayjs.default)(aTime);
+    };
+    const djsDefaultUTC = (aTime, valueOf = false) => {
+        if (valueOf)
+            return djsParseUTC(aTime).valueOf();
+        return djsParseUTC(aTime).utc();
+    };
+    const djsDuration = (aTime, bTime, divisor) => {
+        return ((0, import_dayjs.default)(aTime).valueOf() - (0, import_dayjs.default)(bTime).valueOf()) / divisor;
+    };
+    const djsDurationUTC = (aTime, bTime, divisor) => {
+        return (djsParseUTC(aTime).valueOf() - djsParseUTC(bTime).valueOf()) / divisor;
+    };
+})();
